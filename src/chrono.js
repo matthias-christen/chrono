@@ -64,3 +64,5 @@ exports.parse = function () {
 exports.parseDate = function () {
     return exports.casual.parseDate.apply(exports.casual, arguments);
 }
+
+exports.moment = require('moment');

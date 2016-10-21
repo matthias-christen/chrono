@@ -132,10 +132,10 @@ test("Test - Single Expression", function() {
         ok(result.start.get('year') == 2012, 'Test Result - (Year) ' + JSON.stringify(result.start) );
         ok(result.start.get('month') == 8, 'Test Result - (Month) ' + JSON.stringify(result.start) );
         ok(result.start.get('day') == 9, 'Test Result - (Day) ' + JSON.stringify(result.start) );
-        ok(result.start.get('hour') == 0, 'Test Result - (hour) ' + JSON.stringify(result.start) );
+        ok(result.start.get('hour') == 22, 'Test Result - (hour) ' + JSON.stringify(result.start) );
 
         var resultDate = result.start.date();
-        var expectDate = new Date(2012, 7, 9, 0);
+        var expectDate = new Date(2012, 7, 9, 22);
         ok(Math.abs(expectDate.getTime() - resultDate.getTime()) < 100000, 'Test result.startDate ' + resultDate +'/' +expectDate)
     }
 

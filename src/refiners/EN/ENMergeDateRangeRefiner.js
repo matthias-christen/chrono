@@ -21,7 +21,7 @@ exports.Refiner = function ENMergeDateRangeRefiner() {
             currResult = results[i];
             prevResult = results[i-1];
             
-            if (!prevResult.end && !currResult.end 
+            if (!this.hasKnownValues(prevResult.end) && !this.hasKnownValues(currResult.end)
                 && this.isAbleToMerge(text, prevResult, currResult)) {
               
                 prevResult = this.mergeResult(text, prevResult, currResult);
@@ -38,6 +38,10 @@ exports.Refiner = function ENMergeDateRangeRefiner() {
 
 
         return mergedResult;
+    };
+
+    this.hasKnownValues = function(parsedComponents) {
+        return parsedComponents && parsedComponents.hasKnownValues();
     };
 
     this.isAbleToMerge = function(text, result1, result2) {

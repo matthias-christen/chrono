@@ -79,6 +79,14 @@ ParsedComponents.prototype.isCertain = function(component) {
     return component in this.knownValues;
 };
 
+ParsedComponents.prototype.hasKnownValues = function() {
+    for (var k in this.knownValues) {
+        return true;
+    }
+
+    return false;
+};
+
 ParsedComponents.prototype.isPossibleDate = function() {
     
     var dateMoment = this.moment();
