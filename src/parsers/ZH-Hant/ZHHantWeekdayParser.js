@@ -60,9 +60,11 @@ exports.Parser = function ZHHantWeekdayParser() {
 
           if ( opt.forwardDatesOnly && refOffset > offset ) {
               startMoment.day(offset + 7);
+          } else if (opt.backwardDatesOnly && refOffset < offset) {
+              startMoment.day(offset - 7);
           } else if (!opt.forwardDatesOnly && Math.abs(offset - 7 - refOffset) < Math.abs(offset - refOffset)) {
               startMoment.day(offset - 7);
-          } else if (!opt.forwardDatesOnly && Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)) {
+          } else if (!opt.backwardDatesOnly && !opt.forwardDatesOnly && Math.abs(offset + 7 - refOffset) < Math.abs(offset - refOffset)) {
               startMoment.day(offset + 7);
           } else {
               startMoment.day(offset);
